@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<string.h>
+int permu(char *,int ,int );
+int swap(char *,char *);
+int main()
+{
+    char str[]={"abc"};
+    int n=strlen(str);
+    permu(str,0,n-1);
+}
+int permu(char *a,int l,int r)
+{
+    int i;
+    if(l==r)
+        printf("%s\n",a);
+    else{    
+        for(i=l;i<=r;i++){
+    swap((a+l),(a+i));
+    permu(a,l+1,r);
+    swap((a+l),(a+i));
+        }
+    }
+}
+int swap(char *a,char *b)
+{
+    char temp=*a;
+    *a=*b;
+    *b=temp;
+}
+
